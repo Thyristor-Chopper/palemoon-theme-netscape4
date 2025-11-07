@@ -247,33 +247,12 @@
 /* SEARCH BAR */
 #searchText {
   box-shadow: none;
-  border-radius: 0;
-  border: 2px solid;
-  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
-  -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
-  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
 }
 #searchSubmit {
-  margin-inline-start: 5px;
   box-shadow: none !important;
-  border-radius: 0;
-  border: 3px solid;
-  -moz-border-top-colors: transparent ThreeDHighlight ThreeDLightShadow;
-  -moz-border-right-colors: transparent ThreeDDarkShadow ThreeDShadow;
-  -moz-border-bottom-colors: transparent ThreeDDarkShadow ThreeDShadow;
-  -moz-border-left-colors: transparent ThreeDHighlight ThreeDLightShadow;
-  background-color: ThreeDFace !important;
-  color: ButtonText !important;
 }
 #searchSubmit:hover {
   cursor: default;
-}
-#searchSubmit:hover:active {
-  -moz-border-top-colors: ThreeDDarkShadow ThreeDShadow transparent;
-  -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow transparent;
-  -moz-border-bottom-colors: ThreeDDarkShadow ThreeDShadow transparent;
-  -moz-border-left-colors: ThreeDDarkShadow ThreeDShadow transparent;
 }
 #searchLogoContainer > * {
   transform: scale(.75);
