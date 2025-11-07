@@ -1,55 +1,90 @@
 <?xml version="1.0"?>
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
-   - License, v. 2.0. If a copy of the MPL was not distributed with this
-   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+	 - License, v. 2.0. If a copy of the MPL was not distributed with this
+	 - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
+<!DOCTYPE window [
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd" >
+%browserDTD;
+]>
 
-<bindings id="globalBindings"
-   xmlns="http://www.mozilla.org/xbl"
-   xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-   xmlns:xbl="http://www.mozilla.org/xbl">
+<bindings id="globalBindings" xmlns="http://www.mozilla.org/xbl" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:xbl="http://www.mozilla.org/xbl">
+	<binding id="radio" extends="chrome://global/content/bindings/radio.xml#radio">
+		<content>
+			<xul:hbox class="radio-check-box1" xbl:inherits="selected,checked,disabled">
+				<xul:hbox class="radio-check-box2" flex="1">
+					<xul:image class="radio-check" xbl:inherits="selected,checked,disabled" />
+				</xul:hbox>
+			</xul:hbox>
+			<xul:hbox class="radio-label-box" align="center" flex="1">
+				<xul:image class="radio-icon" xbl:inherits="src" />
+				<xul:label class="radio-label" xbl:inherits="xbl:text=label,accesskey,crop" flex="1" />
+			</xul:hbox>
+		</content>
+	</binding>
 
-  <binding id="radio"
-           extends="chrome://global/content/bindings/radio.xml#radio">
-    <content>
-      <xul:hbox class="radio-check-box1" xbl:inherits="selected,checked,disabled">
-        <xul:hbox class="radio-check-box2" flex="1">
-          <xul:image class="radio-check" xbl:inherits="selected,checked,disabled"/>
-        </xul:hbox>
-      </xul:hbox>
-      <xul:hbox class="radio-label-box" align="center" flex="1">
-        <xul:image class="radio-icon" xbl:inherits="src"/>
-        <xul:label class="radio-label" xbl:inherits="xbl:text=label,accesskey,crop" flex="1"/>
-      </xul:hbox>
-    </content>
-  </binding>
+	<binding id="radio-with-spacing" extends="chrome://global/skin/globalBindings.xml#radio">
+		<content>
+			<xul:hbox class="radio-spacer-box">
+				<xul:hbox class="radio-check-box1" xbl:inherits="selected,checked,disabled">
+					<xul:hbox class="radio-check-box2" flex="1">
+						<xul:image class="radio-check" xbl:inherits="selected,checked,disabled" />
+					</xul:hbox>
+				</xul:hbox>
+			</xul:hbox>
+			<xul:hbox class="radio-label-center-box" flex="1">
+				<xul:hbox class="radio-label-box" flex="1">
+					<xul:image class="radio-icon" xbl:inherits="src" />
+					<xul:label class="radio-label" xbl:inherits="xbl:text=label,accesskey,crop" flex="1" />
+				</xul:hbox>
+			</xul:hbox>
+		</content>
+	</binding>
 
-  <binding id="radio-with-spacing"
-           extends="chrome://global/skin/globalBindings.xml#radio">
-    <content>
-      <xul:hbox class="radio-spacer-box">
-        <xul:hbox class="radio-check-box1" xbl:inherits="selected,checked,disabled">
-          <xul:hbox class="radio-check-box2" flex="1">
-            <xul:image class="radio-check" xbl:inherits="selected,checked,disabled"/>
-          </xul:hbox>
-        </xul:hbox>
-      </xul:hbox>
-      <xul:hbox class="radio-label-center-box" flex="1">
-        <xul:hbox class="radio-label-box" flex="1">
-          <xul:image class="radio-icon" xbl:inherits="src"/>
-          <xul:label class="radio-label" xbl:inherits="xbl:text=label,accesskey,crop" flex="1"/>
-        </xul:hbox>
-      </xul:hbox>
-    </content>
-  </binding>
+	<binding id="toolbarpaletteitem-spacer" extends="chrome://global/content/bindings/toolbar.xml#toolbarpaletteitem">
+		<content>
+			<xul:spacer class="spacer-left" />
+			<children />
+			<xul:spacer class="spacer-right" />
+		</content>
+	</binding>
+	
+	<!--
+	<binding id="restore-back-forward-dropmarker" display="xul:menu" extends="chrome://global/content/bindings/button.xml#menu-button-base">
+		<resources>
+			<stylesheet src="chrome://global/skin/toolbarbutton.css" />
+		</resources>
 
-  <binding id="toolbarpaletteitem-spacer"
-           extends="chrome://global/content/bindings/toolbar.xml#toolbarpaletteitem">
-    <content>
-      <xul:spacer class="spacer-left"/>
-      <children/>
-      <xul:spacer class="spacer-right"/>
-    </content>
-  </binding>
+		<content>
+			<xul:menupopup onpopupshowing="return FillHistoryMenu(event.target);" oncommand="gotoHistoryIndex(event); event.stopPropagation();" onclick="checkForMiddleClick(this, event);" context="" position="after_start" />
+			<children excludes="menupopup" />
+			<xul:toolbarbutton class="box-inherit toolbarbutton-menubutton-button" anonid="button" flex="1" allowevents="true" xbl:inherits="disabled,crop,image,label,accesskey,wrap,badge,align,dir,pack,orient,tooltiptext=buttontooltiptext" />
+			<xul:dropmarker class="toolbarbutton-menubutton-dropmarker" type="menu-button" anonid="dropmarker" xbl:inherits="align,dir,pack,orient,disabled,label,open,consumeanchor" />
+		</content>
+	</binding>
+	-->
+	
+	<binding id="netscape-back-forward">
+		<content>
+			<xul:toolbarbutton id="back-button-netscape" type="menu-button" class="toolbarbutton-1 chromeclass-toolbar-additional" label="&backCmd.label;" oncommand="if(event.target==this) BrowserBack(event); else gotoHistoryIndex(event);" onclick="checkForMiddleClick(this, event);" context="backMenu" tooltip="back-button-tooltip">
+				<xul:menupopup context="" onpopupshowing="return (function(aParent) { var createHistoryMenuItem = (function(aParent, aIndex, aEntry) { var menuitem = document.createElement('menuitem'); menuitem.setAttribute('label', aEntry.title); menuitem.setAttribute('index', aIndex); menuitem.className = 'menuitem-iconic bookmark-item menuitem-with-favicon'; PlacesUtils.favicons.getFaviconURLForPage(aEntry.URI, function(aURI) { if(aURI) menuitem.setAttribute('image', PlacesUtils.favicons.getFaviconLinkForIcon(aURI).spec); }); aParent.insertBefore(menuitem, null); }); var i, entry, end, children = aParent.childNodes; for(i=children.length-1; i&gt;=0; --i) if(children[i].hasAttribute('index')) children[i].remove(); var sessionHistory = getWebNavigation().sessionHistory; end = sessionHistory.index &gt; 15 ? sessionHistory.index - 15 : 0; if(sessionHistory.index &lt;= end) return false; for(i=sessionHistory.index-1; i&gt;=end; i--) { entry = sessionHistory.getEntryAtIndex(i, false); if(entry) createHistoryMenuItem(aParent, i, entry); } return true; })(event.target);" />
+				<xul:observes element="Browser:Back" attribute="disabled" />
+			</xul:toolbarbutton>
 
+			<xul:toolbarbutton id="forward-button-netscape" type="menu-button" class="toolbarbutton-1 chromeclass-toolbar-additional" label="&forwardCmd.label;" oncommand="if(event.target==this) BrowserForward(event); else gotoHistoryIndex(event);" onclick="checkForMiddleClick(this, event);" context="forwardMenu" tooltip="forward-button-tooltip">
+				<xul:menupopup context="" onpopupshowing="return (function(aParent) { var createHistoryMenuItem = (function(aParent, aIndex, aEntry) { var menuitem = document.createElement('menuitem'); menuitem.setAttribute('label', aEntry.title); menuitem.setAttribute('index', aIndex); menuitem.className = 'menuitem-iconic bookmark-item menuitem-with-favicon'; PlacesUtils.favicons.getFaviconURLForPage(aEntry.URI, function(aURI) { if(aURI) menuitem.setAttribute('image', PlacesUtils.favicons.getFaviconLinkForIcon(aURI).spec); }); aParent.insertBefore(menuitem, null); }); var i, entry, end, children = aParent.childNodes; for(i=children.length-1; i&gt;=0; --i) if(children[i].hasAttribute('index')) children[i].remove(); var sessionHistory = getWebNavigation().sessionHistory; end = sessionHistory.count - sessionHistory.index &gt; 15 ? sessionHistory.index + 15 : sessionHistory.count - 1; if(sessionHistory.index &gt;= end) return false; for(i=sessionHistory.index+1; i&lt;=end; i++) { entry = sessionHistory.getEntryAtIndex(i, false); if(entry) createHistoryMenuItem(aParent, i, entry); } return true; })(event.target);" />
+				<xul:observes element="Browser:Forward" attribute="disabled" />
+			</xul:toolbarbutton>
+			
+			<children />
+		</content>
+	</binding>
+	
+	<binding id="popupset-back-forward">
+		<content>
+			<children />
+			<xul:menupopup id="backMenu" position="after_start" onpopupshowing="return (function(aParent) { var createHistoryMenuItem = (function(aParent, aIndex, aEntry) { var menuitem = document.createElement('menuitem'); menuitem.setAttribute('label', aEntry.title); menuitem.setAttribute('index', aIndex); menuitem.className = 'menuitem-iconic bookmark-item menuitem-with-favicon'; PlacesUtils.favicons.getFaviconURLForPage(aEntry.URI, function(aURI) { if(aURI) menuitem.setAttribute('image', PlacesUtils.favicons.getFaviconLinkForIcon(aURI).spec); }); aParent.insertBefore(menuitem, null); }); var i, entry, end, children = aParent.childNodes; for(i=children.length-1; i&gt;=0; --i) if(children[i].hasAttribute('index')) children[i].remove(); var sessionHistory = getWebNavigation().sessionHistory; end = sessionHistory.index &gt; 15 ? sessionHistory.index - 15 : 0; if(sessionHistory.index &lt;= end) return false; for(i=sessionHistory.index-1; i&gt;=end; i--) { entry = sessionHistory.getEntryAtIndex(i, false); if(entry) createHistoryMenuItem(aParent, i, entry); } return true; })(event.target);" />
+			<xul:menupopup id="forwardMenu" position="after_start" onpopupshowing="return (function(aParent) { var createHistoryMenuItem = (function(aParent, aIndex, aEntry) { var menuitem = document.createElement('menuitem'); menuitem.setAttribute('label', aEntry.title); menuitem.setAttribute('index', aIndex); menuitem.className = 'menuitem-iconic bookmark-item menuitem-with-favicon'; PlacesUtils.favicons.getFaviconURLForPage(aEntry.URI, function(aURI) { if(aURI) menuitem.setAttribute('image', PlacesUtils.favicons.getFaviconLinkForIcon(aURI).spec); }); aParent.insertBefore(menuitem, null); }); var i, entry, end, children = aParent.childNodes; for(i=children.length-1; i&gt;=0; --i) if(children[i].hasAttribute('index')) children[i].remove(); var sessionHistory = getWebNavigation().sessionHistory; end = sessionHistory.count - sessionHistory.index &gt; 15 ? sessionHistory.index + 15 : sessionHistory.count - 1; if(sessionHistory.index &gt;= end) return false; for(i=sessionHistory.index+1; i&lt;=end; i++) { entry = sessionHistory.getEntryAtIndex(i, false); if(entry) createHistoryMenuItem(aParent, i, entry); } return true; })(event.target);" />
+		</content>
+	</binding>
 </bindings>

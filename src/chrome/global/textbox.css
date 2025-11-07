@@ -12,7 +12,7 @@
 /* ::::: textbox ::::: */
 
 textbox {
-  -moz-appearance: none;
+  -moz-appearance: textfield;
   cursor: text;
   margin: 2px 4px;
   border: 2px solid;
@@ -21,7 +21,7 @@ textbox {
   -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
   -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
   padding: 2px 2px 3px;
-  padding-inline-start: 4px;
+  -moz-padding-start: 4px;
   background-color: -moz-Field;
   color: -moz-FieldText;
 }
@@ -79,7 +79,7 @@ textbox.plain html|*.textbox-textarea {
 /* ::::: search textbox ::::: */
 
 .textbox-search-icon {
-  list-style-image: url(chrome://global/skin/icons/search-icon.png);
+  list-style-image: url(chrome://global/skin/icons/Search-glass.png);
   -moz-image-region: rect(0, 16px, 16px, 0);
 }
 
@@ -92,7 +92,7 @@ textbox.plain html|*.textbox-textarea {
 }
 
 .textbox-search-clear {
-  list-style-image: url(chrome://global/skin/icons/search-close.png);
+  list-style-image: url(chrome://global/skin/icons/Search-close.png);
   -moz-image-region: rect(0, 16px, 16px, 0);
 }
 

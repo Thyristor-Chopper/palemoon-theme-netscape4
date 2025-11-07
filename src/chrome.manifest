@@ -1,31 +1,29 @@
 #------------------------------------------------------------------------------
 # Toolkit
 #------------------------------------------------------------------------------
-skin    global                  moonscape-classic        chrome/global/
-skin    mozapps                 moonscape-classic        chrome/mozapps/
+skin    global                  netscape4        chrome/global/
+skin    mozapps                 netscape4        chrome/mozapps/
 
 #------------------------------------------------------------------------------
 # Application
 #------------------------------------------------------------------------------
-skin    browser                 moonscape-classic        chrome/browser/
-skin    messenger               moonscape-classic        chrome/messenger/
-skin    messenger-newsblog      moonscape-classic        chrome/messenger-newsblog/
-skin    editor                  moonscape-classic        chrome/editor/
-skin    ambassador              moonscape-classic        chrome/ambassador/
-skin    communicator            moonscape-classic        chrome/communicator/
-
-skin    subskins                moonscape-classic        chrome/subskins/
+skin    browser                 netscape4        chrome/browser/
+skin    messenger               netscape4        chrome/messenger/
+skin    messenger-newsblog      netscape4        chrome/messenger-newsblog/
+skin    editor                  netscape4        chrome/editor/
+skin    ambassador              netscape4        chrome/ambassador/
+skin    communicator            netscape4        chrome/communicator/
 
 #------------------------------------------------------------------------------
 # OS-specific skin
 #------------------------------------------------------------------------------
 # Fallback skin for unmatched systems
-skin    os_target               moonscape-classic        chrome/os_target/windows/
+skin    os_target               netscape4        chrome/os_target/windows/
 
 # Skin content overrides
-skin    os_target               moonscape-classic        chrome/os_target/windows/     os=WINNT
-skin    os_target               moonscape-classic        chrome/os_target/mac/         os=Darwin
-skin    os_target               moonscape-classic        chrome/os_target/linux/       os=Linux
+skin    os_target               netscape4        chrome/os_target/windows/     os=WINNT
+skin    os_target               netscape4        chrome/os_target/mac/         os=Darwin
+skin    os_target               netscape4        chrome/os_target/linux/       os=Linux
 
 #------------------------------------------------------------------------------
 # Overrides

@@ -2,19 +2,19 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
     <Description about="urn:mozilla:install-manifest">
         <!-- General -->
-        <em:id>{2C646A52-4EDC-455F-8047-9405795D3E51}</em:id>
-        <em:version>dev-build</em:version>
+        <em:id>netscape4@pb</em:id>
+        <em:version>1.0.0</em:version>
         <em:type>4</em:type>
-        <em:internalName>moonscape-classic</em:internalName>
+        <em:internalName>netscape4</em:internalName>
         <em:skinnable>true</em:skinnable>
 
         <!-- Front-end metadata -->
-        <em:name>Moonscape</em:name>
-        <em:description>A full featured retro theme that looks like Netscape 4.x.</em:description>
+        <em:name>Netscape Navigator 4.0</em:name>
+        <em:description>Emulates classic Mozilla appearance</em:description>
         <em:homepageURL>http://franklindm.github.io/</em:homepageURL>
 
         <!-- Authors -->
-        <em:creator>FranklinDM</em:creator>
+        <em:creator>FranklinDM (Original), Netscape Navigator Developers (Extra Source Codes), 길고 (Fork)</em:creator>
         <em:contributor>Michael Walden (creator of FOXSCAPE)</em:contributor>
         <em:contributor>Netscape</em:contributor>
         <em:contributor>Lootyhoof (for Windows 10 support)</em:contributor>

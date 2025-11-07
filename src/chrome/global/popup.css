@@ -20,7 +20,7 @@ panel {
 }
 
 menupopup {
-  -moz-appearance: none;
+  -moz-appearance: menupopup;
 }
 
 menupopup > menu > menupopup {
